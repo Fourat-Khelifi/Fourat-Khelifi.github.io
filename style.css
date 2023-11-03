@@ -89,6 +89,7 @@ nav ul li a:hover::after{
     flex-direction: row;
     justify-content: center;
     font-size: 30px;
+    margin-bottom: 60px;
     
 }
 .tab-links {
@@ -117,7 +118,7 @@ nav ul li a:hover::after{
 .tab-contents ul li {
     list-style: none;
     margin:10px 0;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .tab-contents{
@@ -125,7 +126,7 @@ nav ul li a:hover::after{
 }
 #span1{
     color:gray;
-    font-size: 15px;
+    font-size: 20px;
 }
 #span2{
     color:#438ef2;
@@ -438,6 +439,7 @@ nav .fas{
     font-weight: 500;
     cursor: pointer;
     position: relative;
+    margin-bottom: 20px;
     
 }
 .tab-links::after{
