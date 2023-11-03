@@ -144,7 +144,7 @@ nav ul li a:hover::after{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 250px;
     padding-top: 100px;
 }
 .project-titles{
