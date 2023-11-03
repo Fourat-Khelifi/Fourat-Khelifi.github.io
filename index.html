@@ -7,28 +7,34 @@
     <title>Fourat Khelifi</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/5f6d2e753a.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <div id="header">
         <div class="container">
             <nav>
                 <h1>Fourat</h1>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact me</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact me</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
             </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
-        </div>
+        
         <div class="header-text">
             <p>Computer Science Student</p>
-            <h1>Hi, I'm <span>Fourat</span> Khelifi from Tunisia</h1>
+            <h1>Hi, I'm <span>Fourat</span> Khelifi</h1>
+        </div>
         </div>
     </div>
     <div id="about">
         <h1 class="sub-title">About me</h1>
-        <div class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam quaerat eaque, excepturi veniam beatae laborum esse consectetur eum odio aut earum magni tempora perferendis ad repellendus. Sapiente aspernatur dolorem laudantium.</div>
+        <div class="container">
+        <div class="para">Hello, I'm a computer science student who loves coding and technology. I enjoy solving problems and believe technology can change the world. I'm also a creative and adaptable person. I like to come up with new ideas and can easily adjust to different situations.Feel free to explore my projects and connect with me to learn more about my work and to get in touch to discuss exciting opportunities!</div>
         <div class="tab-titles">
             <p class="tab-links active-link " onclick="opentab('education')">Education</p>
             <p class="tab-links" onclick="opentab('associative-life')">Associative Life</p>
@@ -54,10 +60,89 @@
                 <li>Unity</li>
                 <li>Flutter</li>
                 <li>Android Studio</li>
-                <li>Photoshop</li>
-                <li>FL Studio</li>
             </ul>
         </div>
+        </div>
+    </div>
+    <div id="portfolio">
+        <h1 class="sub-title">Portfolio</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col1">
+                    <div class="project-titles">
+                        <p class="project-links active-project-link" onclick="openimages('project1')">projet1</p>
+                        <p class="project-links" onclick="openimages('project2')">projet2</p>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="work">
+                        <img id ="image-container" src="https://placehold.co/1920x1080" alt="">
+                        <div class="layer">
+                            <h3 id="title-container"></h3>
+                            <p id="description-container"></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fas fa-paper-plane"></i>fouratkhelifi1@gmail.com</p>
+                    <p><i class="fas fa-phone-square-alt"></i>+216 29 083 310</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/fourat.kh.1"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/fouratkhelifi"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/fourat-khelifi/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <a href="CV Fourat Khelifi.pdf" download class="button button2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="text" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" required placeholder="Your Message"></textarea>
+                        <button type="submit" class="button button2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright"><p>Copyright © Fourat. </p></div>
     </div>
 </body>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbydoOVAJGbvmSDETEiOhmaugf81N-CQ1HnuKXiWF48Ytv8jItpi1z5HQM2zt3mrUAFsEw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+        })
+        .catch(error => {
+            msg.innerHTML = "Error sending message"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+        })
+    })
+  </script>
+  <script>
+    var sidemenu = document.getElementById("sidemenu")
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right ="-200px"
+    }
+  </script>
 </html>
